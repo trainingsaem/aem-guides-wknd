@@ -48,6 +48,7 @@
                                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                         fieldDescription="This is the textfield that allows the author to enter the alt text"
                                         fieldLabel="Alt text"
+                                        emptyText="Enter logo alt text"
                                         name="./logoAltText" />
                                 </items>
                             </wellItems>
