@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Logo Properties"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        granite:class="wknd-dialog"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true"
+                orientation="horizontal">
+                <items jcr:primaryType="nt:unstructured">
+                    <tabLogo
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Logo items"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <wellItems
+                                granite:class="wknd-authoring--well"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/well">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <logoBrandName
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldDescription="This is the textfield that allows the author to enter the brand name text"
+                                        fieldLabel="Brand Name"
+                                        name="./logoBrandName"
+                                        required="{Boolean}true"/>
+                                    <logoImage
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldDescription="This is the pathfield that allows the author to choose the logo image"
+                                        fieldLabel="Image"
+                                        name="./logoImage"
+                                        rootPath="/content/dam/wknd"/>
+                                    <logoAltText
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldDescription="This is the textfield that allows the author to enter the alt text"
+                                        fieldLabel="Alt text"
+                                        name="./logoAltText"/>
+                                </items>
+                            </wellItems>
+                        </items>
+                    </tabLogo>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

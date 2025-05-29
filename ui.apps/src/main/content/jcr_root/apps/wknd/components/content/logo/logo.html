@@ -1,0 +1,12 @@
+<!-- Include CSS from clientlib -->
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+    data-sly-call="${clientlib.css @ categories='wknd.components.logo'}" />
+    
+    
+    <div class="logo-container"  data-sly-test="${properties.logoBrandName}">
+        <img src="${properties.logoImage}" class="logo-image" alt="${properties.logoAltText}">
+        <div class="brand-name">${properties.logoBrandName}</div>
+    </div>
+    
+    <!-- Author mode placeholder if name is missing -->
+<div data-sly-test="${!properties.logoBrandName}" data-emptytext="Logo Component" class="cq-placeholder"></div>
