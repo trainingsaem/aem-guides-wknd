@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Get current branch name
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+
+# Allowed types
+TYPES="feature|bugfix|chore|hotfix|ci|refactor"
+
+# Pattern to match
+PATTERN="^(${TYPES})/WKND-[0-9]+(-[a-z0-9-]+)?$"
+
+if ! echo "$BRANCH_NAME" | grep -Eq "$PATTERN"; then
+  # ANSI color codes: Red for error, Green for expected format, Bold for emphasis
+  echo -e "\033[1;31m❌ ERROR: Invalid branch name: '$BRANCH_NAME'\033[0m"
+  echo -e "\033[1;32m✅ Expected format: type/WKND-123-description\033[0m"
+  echo -e "\033[1m   Allowed types:\033[0m feature, bugfix, chore, hotfix, ci, refactor"
+  echo -e "\033[1m   Example:\033[0m feature/WKND-12-add-empty-text"
+  exit 1
+fi

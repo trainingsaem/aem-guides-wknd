@@ -1,0 +1,28 @@
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# Allowed types
+TYPES="feature|bugfix|chore|hotfix|ci|refactor"
+
+# Get current branch name
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+
+# Extract ticket number (e.g., WKND-12) from branch name
+TICKET=$(echo "$BRANCH_NAME" | grep -Eo 'WKND-[0-9]+' || echo "WKND-XXX")
+
+# Extract type from branch name (e.g., feature from feature/WKND-12)
+BRANCH_TYPE=$(echo "$BRANCH_NAME" | grep -Eo "^(${TYPES})" || echo "unknown")
+
+# Pattern: [type]: WKND-123 message
+PATTERN="^\[(${TYPES})\]: WKND-[0-9]+ .+"
+
+if ! echo "$COMMIT_MSG" | grep -Eq "$PATTERN"; then
+  # ANSI color codes: Red for error, Bold for emphasis
+  echo -e "\033[1;31m❌ ERROR: Invalid commit message format: '$COMMIT_MSG'\033[0m"
+  echo -e "\033[1;32m✅ Expected format: [type]: WKND-123 your commit message\033[0m"
+  echo -e "\033[1m   Allowed types:\033[0m feature, bugfix, chore, hotfix, ci, refactor"
+  echo -e "\033[1m   Example:\033[0m [$BRANCH_TYPE]: $TICKET $COMMIT_MSG"
+  exit 1
+fi
