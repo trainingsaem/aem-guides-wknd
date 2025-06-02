@@ -6,3 +6,5 @@
 *.vars text
 *.any text
 magic text
+
+.githooks/* text eol=lf
