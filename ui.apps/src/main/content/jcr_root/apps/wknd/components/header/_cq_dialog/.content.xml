@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Properties"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true"
+                orientation="horizontal">
+                <items jcr:primaryType="nt:unstructured">
+                    <logoText
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Logo Text"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <wellText
+                                granite:class="wknd-authoring--well"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/well">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <Logo_x0020_Alternative_x0020_Text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldDescription="Provide alternative text for the logo image for accessibility.&#xa;&#xa;"
+                                        fieldLabel="Alt Text"
+                                        maxlength="{Long}[100]"
+                                        name="./alternativeText"
+                                        validation="alphabets.validation"/>
+                                    <Brand_x0020_Name
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldDescription="Enter the text to display as the brand name."
+                                        fieldLabel="Brand Name"
+                                        maxlength="{Long}[100]"
+                                        name="./brandName"
+                                        validation="alphabets.validation"/>
+                                    <Logo_x0020_Image_x0020_Source
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        empty_x0020_Text="Upload an image file or provide a URL for the logo image."
+                                        fieldLabel="Logo Image"
+                                        multiple="{Boolean}false"
+                                        name="./logoImage"
+                                        rootpath="/content/dam/wknd"/>
+                                </items>
+                            </wellText>
+                        </items>
+                    </logoText>
+                    <tabNavigationItems
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Header Navigation"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <NavigationItems
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="NavigationItems">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./navigationItems">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <wellFields
+                                            granite:class="wknd-authoring--well"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/well">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <header_x0020_navigation_x0020_link
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="This is the textfield for header navigation link path"
+                                                    fieldLabel="Header Navigation Link"
+                                                    name="./headerNavigationLink"/>
+                                                <header_x0020_navigation_x0020_title
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="This is the textfield for header navigation title "
+                                                    fieldLabel="Header Navigation Title"
+                                                    name="./headerNavigationTitle"/>
+                                            </items>
+                                        </wellFields>
+                                    </items>
+                                </field>
+                            </NavigationItems>
+                        </items>
+                    </tabNavigationItems>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

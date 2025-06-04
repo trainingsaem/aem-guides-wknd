@@ -1,0 +1,21 @@
+<!-- Include CSS from clientlib -->
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+<sly data-sly-call="${clientlib.all @ categories='wknd.logo'}" />
+    
+    <header class="header">
+        <nav class="container nav"> 
+<div class="logo-container">
+   <img src="${properties.logoImage}" class="logo-image" alt="${properties.alternativeText}">
+   <div class="brand-name">${properties.brandName}</div>
+</div> 
+
+<ul class="nav-list">
+<sly data-sly-list.NavItem="${resource.children}">			
+	          <sly data-sly-list.item="${NavItem.children}">
+          <li><a href="${item.headerNavigationLink}" class="nav-link">${item.headerNavigationTitle}</a></li>
+          </sly>
+          </sly>
+</ul>
+</nav>
+</header>
+
