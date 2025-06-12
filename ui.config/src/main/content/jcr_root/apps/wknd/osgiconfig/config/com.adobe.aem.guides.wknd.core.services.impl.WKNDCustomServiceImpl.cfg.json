@@ -1,0 +1,4 @@
+// Configuration created by Apache Sling JCR Installer
+{
+  "api.endpoint":"https://google.com"
+}

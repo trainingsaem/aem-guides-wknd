@@ -4,6 +4,7 @@ import com.adobe.aem.guides.wknd.core.models.CustomerGreetingServiceModel;
 import com.adobe.aem.guides.wknd.core.services.CustomerGreetingService;
 import com.adobe.aem.guides.wknd.core.services.CustomerService;
 import com.adobe.aem.guides.wknd.core.services.GreetingService;
+import com.adobe.aem.guides.wknd.core.services.WKNDCustomService;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -32,6 +33,9 @@ public class CustomerGreetingServiceModelImpl implements CustomerGreetingService
     @OSGiService
     CustomerGreetingService customerGreetingService;
 
+    @OSGiService
+    WKNDCustomService wkndCustomService;
+
     @ValueMapValue
     private String greetingMessageFromDialog;
 
@@ -43,6 +47,8 @@ public class CustomerGreetingServiceModelImpl implements CustomerGreetingService
     private String customerGreetingMessage;
     private String greetingMessageBuiltFromDialog;
     private String customerNameBuiltFromDialog;
+    private String apiEndpoint;
+    private String jsonDataReceivedFromEndpoint;
 
     @PostConstruct
     protected void init() {
@@ -62,6 +68,12 @@ public class CustomerGreetingServiceModelImpl implements CustomerGreetingService
         customerNameBuiltFromDialog = customerService.buildCustomerName(customerNameFromDialog);
         LOGGER.info("\n Customer Name from Dialog: {} ", customerNameFromDialog);
         LOGGER.info("\n Customer Name built from Dialog: {} ", customerNameBuiltFromDialog);
+
+        apiEndpoint = wkndCustomService.apiEndpoint();
+        LOGGER.info("API Endpoint URL from WKNDCustomService: {}", apiEndpoint);
+
+        jsonDataReceivedFromEndpoint = wkndCustomService.performAction();
+        LOGGER.info("JSON Data received from Endpoint form Model: {}", jsonDataReceivedFromEndpoint);
 
 
     }
@@ -89,5 +101,15 @@ public class CustomerGreetingServiceModelImpl implements CustomerGreetingService
     @Override
     public String getCustomerNameBuiltFromDialog() {
         return customerNameBuiltFromDialog;
+    }
+
+    @Override
+    public String getApiEndpoint() {
+        return apiEndpoint;
+    }
+
+    @Override
+    public String getJsonDataReceivedFromEndpoint() {
+        return jsonDataReceivedFromEndpoint;
     }
 }

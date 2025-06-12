@@ -11,4 +11,7 @@ public interface CustomerGreetingServiceModel {
 
     String getCustomerNameBuiltFromDialog();
 
+    String getApiEndpoint();
+
+    String getJsonDataReceivedFromEndpoint();
 }
