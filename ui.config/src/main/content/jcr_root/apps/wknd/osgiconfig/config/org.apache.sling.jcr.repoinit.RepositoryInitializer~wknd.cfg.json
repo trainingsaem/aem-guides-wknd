@@ -1,7 +1,30 @@
 {
-    "scripts": [
-        "create path (sling:OrderedFolder) /content/dam/wknd",
-        "create path (nt:unstructured) /content/dam/wknd/jcr:content",
-        "set properties on /content/dam/wknd/jcr:content\n  set cq:conf{String} to /conf/wknd\n  set jcr:title{String} to \"WKND Sites Project\"\nend"
-    ]
+  "scripts": [
+    "register namespace (wknd) https://site.wknd/1.0",
+    "create path (sling:OrderedFolder) /content/dam/wknd",
+    "create path (nt:unstructured) /content/dam/wknd/jcr:content",
+    "set properties on /content/dam/wknd/jcr:content\n  set cq:conf{String} to /conf/wknd\n  set jcr:title{String} to \"WKND Sites Project\"\nend",
+    "create group wknd-authors with path /home/groups/wknd",
+    "create group wknd-publishers with path /home/groups/wknd",
+    "create group wknd-administrators with path /home/groups/wknd",
+    "set ACL for wknd-authors\n  allow jcr:read,jcr:modifyProperties,jcr:addChildNodes,jcr:removeNode on /content/wknd\nend",
+    "set ACL for wknd-authors\n  allow jcr:read,jcr:addChildNodes,jcr:modifyProperties on /content/dam/wknd\nend",
+    "set ACL for wknd-publishers\n  allow jcr:read,rep:write on /content/wknd\nend",
+    "set ACL for wknd-publishers\n  allow jcr:read on /content/dam/wknd\nend",
+    "set ACL for wknd-administrators\n  allow jcr:all on /content/wknd\nend",
+    "set ACL for wknd-administrators\n  allow jcr:all on /content/dam/wknd\nend",
+    "set ACL for wknd-administrators\n  allow jcr:all on /conf/wknd\nend",
+    "create user Tom with path /home/users/wknd with password 123456",
+    "create user Jerry with path /home/users/wknd with password 123456",
+    "create user Timon with path /home/users/wknd with password 123456",
+    "create user Pumba with path /home/users/wknd with password 123456",
+    "create user Mario with path /home/users/wknd with password 123456",
+    "create user Luigi with path /home/users/wknd with password 123456",
+    "add Tom to group wknd-authors",
+    "add Jerry to group wknd-authors",
+    "add Timon to group wknd-publishers",
+    "add Pumba to group wknd-publishers",
+    "add Mario to group wknd-administrators",
+    "add Luigi to group wknd-administrators"
+  ]
 }
