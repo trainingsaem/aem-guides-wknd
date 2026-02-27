@@ -1,0 +1,13 @@
+{
+    "scripts":[
+        "create path (sling:OrderedFolder) /content/dam/wknd",
+        "create path (nt:unstructured) /content/dam/wknd/jcr:content",
+        "set properties on /content/dam/wknd/jcr:content\n  set cq:conf{String} to /conf/wknd\n  set jcr:title{String} to \"WKND Sites Project\"\nend",
+        "create group wknd-author-group with path /home/groups/wknd",
+        "set properties on authorizable(wknd-author-group)/profile\n  set givenName to \"WKND Author Group\"\n  set email to \"wknd-author-group@wknd.com\"\n  set aboutMe to \"Group for WKND project content authors.\"\nend",
+        "set ACL for wknd-author-group\n  allow jcr:read on /\nend",
+        "create user wknd-author-user with path /home/users/wknd with password 123456",
+        "set properties on authorizable(wknd-author-user)/profile\n  set givenName to \"WKND\"\n  set familyName to \"Author User\"\n  set email to \"wknd-author-user@wknd.com\"\n  set aboutMe to \"User for WKND project content authors.\"\nend",
+        "add wknd-author-user to group wknd-author-group"
+    ]
+}
