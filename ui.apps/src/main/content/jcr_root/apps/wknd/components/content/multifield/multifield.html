@@ -1,0 +1,13 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.CourseModel" />
+
+
+<h2>${model.heading}</h2>
+<sly data-sly-list.course="${model.courseItemsList}">
+    <h3>Course: ${course.course}</h3>
+
+    <ul>
+        <sly data-sly-list.topic="${course.topicItemsList}">
+            <li>Topic: ${topic.topic}</li>
+        </sly>
+    </ul>
+</sly>
