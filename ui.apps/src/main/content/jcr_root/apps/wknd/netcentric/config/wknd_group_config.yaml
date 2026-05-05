@@ -1,0 +1,45 @@
+- group_config:
+
+    - wknd-authors-group:
+        - name: WKND Authors Group
+          path: wknd/netcentric
+          isMemberOf: authors
+          profileContent: |-
+            <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+                jcr:primaryType="nt:unstructured"
+                givenName="WKND Authors Group"
+                email="wknd-authors-group@wknd.com"
+                aboutMe="Group for Authors responsible for authoring and publishing WKND content."/>
+
+    - wknd-publishers-group:
+        - name: WKND Publishers Group
+          path: wknd/netcentric
+          isMemberOf: publishers
+          profileContent: |-
+            <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+                jcr:primaryType="nt:unstructured"
+                givenName="WKND Publishers Group"
+                email="wknd-publishers-group@wknd.com"
+                aboutMe="Group for Publishers responsible for publishing WKND content."/>
+
+    - wknd-reviewers-group:
+        - name: WKND Reviewers Group
+          path: wknd/netcentric
+          isMemberOf: reviewers
+          profileContent: |-
+            <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+                jcr:primaryType="nt:unstructured"
+                givenName="WKND Reviewers Group"
+                email="wknd-reviewers-group@wknd.com"
+                aboutMe="Group for Reviewers responsible for reviewing WKND content."/>
+
+    - wknd-administrators-group:
+        - name: WKND Administrators Group
+          path: wknd/netcentric
+          isMemberOf: administrators
+          profileContent: |-
+            <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+                jcr:primaryType="nt:unstructured"
+                givenName="WKND Administrators Group"
+                email="wknd-administrators-group@wknd.com"
+                aboutMe="Group for Administrators with full access to WKND project."/>

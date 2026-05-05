@@ -1,0 +1,85 @@
+- user_config:
+
+    - wknd-content-service-user:
+        - name: wknd-content-service-user
+          path: wknd/netcentric/system
+          isSystemUser: true
+
+    - wknd-author:
+        - name: WKND Author
+          isMemberOf: wknd-authors-group
+          password: admin
+          path: wknd/netcentric
+          profileContent: |
+            <jcr:root 
+                jcr:primaryType="nt:unstructured"
+                givenName="WKND"
+                familyName="Author"
+                email="wknd-author@wknd.com"
+                aboutMe="User responsible for authoring and publishing WKND content."/>
+          impersonationAllowedFor:
+            - wknd-administrator
+
+    - wknd-publisher:
+        - name: WKND Publisher
+          isMemberOf: wknd-publishers-group
+          password: admin
+          path: wknd/netcentric
+          profileContent: |
+            <jcr:root 
+                jcr:primaryType="nt:unstructured"
+                givenName="WKND"
+                familyName="Publisher"
+                email="wknd-publisher@wknd.com"
+                aboutMe="User responsible for publishing WKND content."/>
+          impersonationAllowedFor:
+            - wknd-administrator
+
+    - wknd-reviewer:
+        - name: WKND Reviewer
+          isMemberOf: wknd-reviewers-group
+          password: admin
+          path: wknd/netcentric
+          profileContent: |
+            <jcr:root 
+                jcr:primaryType="nt:unstructured"
+                givenName="WKND"
+                familyName="Reviewer"
+                email="wknd-reviewer@wknd.com"
+                aboutMe="User responsible for reviewing WKND content."/>
+          impersonationAllowedFor:
+            - wknd-administrator
+
+    - wknd-administrator:
+        - name: WKND Administrator
+          isMemberOf: wknd-administrators-group
+          password: admin
+          path: wknd/netcentric
+          profileContent: |
+            <jcr:root 
+                jcr:primaryType="nt:unstructured"
+                givenName="WKND"
+                familyName="Administrator"
+                email="wknd-administrator@wknd.com"
+                aboutMe="Administrator with full access to WKND project."/>
+
+- ace_config:
+
+    - wknd-content-service-user:
+
+        - path: /content/cq:tags/wknd
+          permission: allow
+          actions: read
+          privileges: rep:write
+          initialContent: |-
+            <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+                jcr:primaryType="cq:Tag"
+                jcr:title="WKND"
+                jcr:description="Tag namespace for categorizing WKND website content including articles, experiences, and campaigns."
+                sling:resourceType="cq/tagging/components/tag"/>
+
+        - path: /content/cq:tags/wknd
+          permission: deny
+          actions:
+          privileges: jcr:addChildNodes
+          repGlob: "*/jcr:content*"

@@ -3,4 +3,5 @@
     <filter root="/apps/wknd/clientlibs"/>
     <filter root="/apps/wknd/components"/>
     <filter root="/apps/wknd/i18n"/>
+    <filter root="/apps/wknd/netcentric/"/>
 </workspaceFilter>
