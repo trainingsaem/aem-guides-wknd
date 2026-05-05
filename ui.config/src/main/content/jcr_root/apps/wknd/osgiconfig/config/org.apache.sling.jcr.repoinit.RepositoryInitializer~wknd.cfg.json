@@ -2,6 +2,11 @@
     "scripts": [
         "create path (sling:OrderedFolder) /content/dam/wknd",
         "create path (nt:unstructured) /content/dam/wknd/jcr:content",
-        "set properties on /content/dam/wknd/jcr:content\n  set cq:conf{String} to /conf/wknd\n  set jcr:title{String} to \"WKND Sites Project\"\nend"
+        "set properties on /content/dam/wknd/jcr:content\n  set cq:conf{String} to /conf/wknd\n  set jcr:title{String} to \"WKND Sites Project\"\nend",
+        "register namespace (wknd) https://site.wknd/1.0",
+        "create group wknd-repoinit-group with path /home/groups/wknd/repoinit\nset properties on authorizable(wknd-repoinit-group)/profile\n  set givenName to \"WKND Repoinit Group\"\n  set email to \"wknd-repoinit-group@wknd.com\"\n  set aboutMe to \"Group for WKND project.\"\nend",
+        "set ACL for wknd-repoinit-group\n  allow jcr:read on /\nend",
+        "create user wknd-repoinit-user with path /home/users/wknd/repoinit with password 123456\nset properties on authorizable(wknd-repoinit-user)/profile\n  set givenName to \"WKND\"\n  set familyName to \"Repoinit User\"\n  set email to \"wknd-repoinit-user@wknd.com\"\n  set aboutMe to \"User for WKND project.\"\nend",
+        "add wknd-repoinit-user to group wknd-repoinit-group"
     ]
 }
